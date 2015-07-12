@@ -1,17 +1,22 @@
-Software Collection devtoolset-3-toolchain Dockerfile
+centos6-devtoolset-3-rpmbuild Dockerfile
 =====================================================
+
+The original purpose was a way to build [io.js](https://github.com/nodejs/io.js) for centos 6 repeatably using:
+```
+docker run --rm -v ${WORKSPACE}:/iojs -w /iojs -t devtoolset-3 ./tools/rpm/rpmbuild.sh
+```
+
+Based on:
+
+https://github.com/sclorg/rhscl-dockerfiles/tree/master/centos6.devtoolset-3-toolchain
 
 How to build this Dockerfile
 ----------------------------
 
-Building this Dockerfile requires a Red Hat Enterprise Linux 7 host
-system with Software Collections entitlements available.
-
 To build the Dockerfile, run:
 
 ```
-# cd devtoolset-3
-# docker build -t=devtoolset-3 .
+# docker build -t devtoolset-3 .
 ```
 
 General container help
@@ -29,10 +34,3 @@ a file with the container ID.
 
 You may try `-e CONT_DEBUG=VAL` with VAL up to 3 to get more verbose debugging
 info.
-
-
-Report bugs to <http://bugzilla.redhat.com>.
-
-
-
-
